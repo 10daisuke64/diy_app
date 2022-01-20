@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        // Diyer
+        'diyers' => [
+            'driver' => 'session',
+            'provider' => 'diyers',
+        ],
+        // Mentor
+        'mentors' => [
+            'driver' => 'session',
+            'provider' => 'mentors',
+        ],
     ],
 
     /*
@@ -65,10 +75,21 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'diyers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Diyer_user::class,
+        ],
+        'mentors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mentor_user::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+
     ],
 
     /*

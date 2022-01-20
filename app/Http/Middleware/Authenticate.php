@@ -3,18 +3,23 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Str;
 
 class Authenticate extends Middleware
 {
-    /**
-     * Get the path the user should be redirected to when they are not authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return string|null
-     */
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+
+            $uri = $request->path();
+
+            // URIが以下から始まる場合
+            if(Str::startsWith($uri, ['diyers/', 'mentors/'])) {
+
+                return 'multi_login';
+
+            }
+
             return route('login');
         }
     }
