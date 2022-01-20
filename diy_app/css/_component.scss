@@ -1,0 +1,11 @@
+@use 'variable' as v;
+
+.c-submit {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  margin-top: 32px;
+  padding: 16px;
+  color: #ffffff;
+  background-color: var(--baseColor);
+}

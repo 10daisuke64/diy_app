@@ -1,0 +1,31 @@
+@use 'reset';
+@use 'foundation';
+@use 'component';
+@use 'common';
+@use 'top';
+@use 'login-register';
+@use 'variable' as v;
+
+h1:not([class]) {
+  margin-bottom: 1em;
+}
+h2:not([class]) {
+  margin-bottom: 0.5em;
+}
+a:not([class]) {
+  text-decoration: underline;
+}
+.section {
+  padding: 40px 0;
+}
+
+.d-dash-qlist {
+  li {
+    padding: 16px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    &:not(:first-of-type) {
+      margin-top: 8px;
+    }
+  }
+}
