@@ -1,0 +1,33 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333333;
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-feature-settings: "palt";
+  letter-spacing: 0.025em;
+  overflow-x: hidden;
+}
+a {
+  color: #333333;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
