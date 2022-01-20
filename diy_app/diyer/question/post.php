@@ -2,42 +2,71 @@
 session_start();
 $path = $_SERVER['DOCUMENT_ROOT'] . "/diy_app";
 include $path . "/common/functions.php";
+// セッションの有無をチェック
 check_session_id("login");
+// ユーザー属性のチェック
+check_diyer();
 
 // -----------------------------
-//  POST 受け取り
-// -----------------------------
-if (
-  !isset($_POST['title']) || $_POST['title'] == '' ||
-  !isset($_POST['body']) || $_POST['body'] == ''
-) {
-  exit('paramError');
-}
-$title = $_POST["title"];
-$body = $_POST["body"];
-$user_id = $_SESSION['user_id'];
-// var_dump($title);
-// var_dump($body);
-// var_dump($user_id);
-// exit();
-
-// -----------------------------
-//  投稿処理
+//  カテゴリーの取得
 // -----------------------------
 $pdo = connect_to_db();
-$sql = 'INSERT INTO questions_table(id, user_id, title, body, is_published, is_deleted, created_at, updated_at) VALUES(NULL, :user_id, :title, :body, 1, 0, now(), now())';
-
+$sql = 'SELECT * FROM categories_table';
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
-$stmt->bindValue(':title', $title, PDO::PARAM_STR);
-$stmt->bindValue(':body', $body, PDO::PARAM_STR);
-
 try {
   $status = $stmt->execute();
 } catch (PDOException $e) {
   echo json_encode(["sql error" => "{$e->getMessage()}"]);
   exit();
 }
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-header("Location:/diy_app/diyer/dashboard");
-exit();
+$output_category = "";
+foreach ($result as $val) {
+  $output_category .= "
+    <label class='c-label-checkbox'><input type='checkbox' name='category[]' value='{$val["id"]}'><span>{$val["name"]}</span></label>
+  ";
+}
+?>
+
+<!-- header -->
+<?php include $path . "/common/header.php"; ?>
+<!-- //header -->
+
+<div class="hero hero--diyer">
+  <img src="/diy_app/img/hero.png" width="200" height="200" alt="hero">
+</div>
+
+<main>
+  <section class="section">
+    <div class="wrapper">
+      <h1>質問投稿フォーム</h1>
+      <div class="question-form">
+        <form action="./post_act.php" method="POST">
+          <dl>
+            <dt>タイトル</dt>
+            <dd>
+              <input type="text" name="title">
+            </dd>
+          </dl>
+          <dl>
+            <dt>カテゴリー</dt>
+            <dd><?= $output_category; ?>
+            </dd>
+          </dl>
+          <dl>
+            <dt>質問内容</dt>
+            <dd>
+              <textarea name="body" rows="10"></textarea>
+            </dd>
+          </dl>
+          <button class="c-submit" type="submit">投稿する</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- footer -->
+<?php include $path . "/common/footer.php"; ?>
+<!-- //footer -->

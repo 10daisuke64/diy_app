@@ -18,7 +18,14 @@
   <header class="header">
     <div class="header-wrapper">
       <h1 class="header__logo">
-        <a href="/diy_app/">DIY app</a>
+        <?php
+        if (!isset($_SESSION["session_id"]) || $_SESSION["session_id"] != session_id()) {
+          $home_url = "/diy_app";
+        } else {
+          $home_url = "/diy_app/login/mypage.php";
+        }
+        ?>
+        <a href="<?= $home_url ?>">DIY app</a>
       </h1>
       <nav class="header__nav">
         <ul class="g-nav">

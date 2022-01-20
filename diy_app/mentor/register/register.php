@@ -40,14 +40,14 @@ try {
 }
 
 if ($stmt->fetchColumn() > 0) {
-  header("Location:/diy_app/diyer/register/already_exist.php");
+  header("Location:/diy_app/mentor/register/already_exist.php");
   exit();
 }
 
 // -----------------------------
 //  登録処理
 // -----------------------------
-$sql = 'INSERT INTO users_table(id, name, email, password, is_admin, is_diyer, is_mentor, is_deleted, created_at, updated_at) VALUES(NULL, :name, :email, :password, 0, 1, 0, 0, now(), now())';
+$sql = 'INSERT INTO users_table(id, name, email, password, is_admin, is_diyer, is_mentor, is_deleted, created_at, updated_at) VALUES(NULL, :name, :email, :password, 0, 0, 1, 0, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -61,5 +61,5 @@ try {
   exit();
 }
 
-header("Location:/diy_app/diyer/register/thanks.php");
+header("Location:/diy_app/mentor/register/thanks.php");
 exit();

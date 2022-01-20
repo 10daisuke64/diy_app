@@ -2,7 +2,10 @@
 session_start();
 $path = $_SERVER['DOCUMENT_ROOT'] . "/diy_app";
 include($path . "/common/functions.php");
+// セッションの有無をチェック
 check_session_id("login");
+// ユーザー属性のチェック
+check_diyer();
 
 $user_id = $_SESSION['user_id'];
 $pdo = connect_to_db();
@@ -29,6 +32,10 @@ $result = $stmt->fetch();
 <!-- header -->
 <?php include $path . "/common/header.php"; ?>
 <!-- //header -->
+
+<div class="hero hero--diyer">
+  <img src="/diy_app/img/hero.png" width="200" height="200" alt="hero">
+</div>
 
 <main>
   <section class="section">
@@ -75,6 +82,8 @@ $result = $stmt->fetch();
           </form>
         </div>
       <?php endif; ?>
+
+      <a href="/diy_app/diyer/question/">一覧へ戻る</a>
     </div>
   </section>
 </main>

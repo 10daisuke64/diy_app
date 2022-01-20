@@ -143,6 +143,9 @@ button {
   }
 }
 
+/* ---------------------------
+  form
+----------------------------- */
 .c-submit {
   display: block;
   max-width: 200px;
@@ -151,6 +154,97 @@ button {
   padding: 16px;
   color: #ffffff;
   background-color: var(--baseColor);
+}
+
+.c-label-checkbox {
+  display: inline-block;
+  position: relative;
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+}
+.c-label-checkbox input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.c-label-checkbox input[type=checkbox]:checked {
+  background-color: #eeeeee;
+}
+.c-label-checkbox span {
+  position: relative;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* ---------------------------
+  post
+----------------------------- */
+.c-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.c-pagination a, .c-pagination span {
+  display: block;
+  margin: 4px;
+  padding: 4px 8px;
+}
+.c-pagination a {
+  background-color: var(--baseColor);
+  color: #ffffff;
+}
+.c-pagination .current {
+  background-color: var(--bgMainColor);
+}
+
+.c-category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.c-category a, .c-category span {
+  display: block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  padding: 2px 4px;
+  background-color: var(--baseColor);
+  color: #ffffff;
+  font-size: 11px;
 }
 
 /* ---------------------------
@@ -238,8 +332,13 @@ a:not([class]) {
   text-decoration: underline;
 }
 
+time {
+  font-size: 12px;
+  text-decoration: none;
+}
+
 .section {
-  padding: 40px 0;
+  padding: 64px 0;
 }
 
 .d-dash-qlist li {
@@ -249,5 +348,28 @@ a:not([class]) {
 }
 .d-dash-qlist li:not(:first-of-type) {
   margin-top: 8px;
+}
+
+.question-pagination {
+  margin-top: 40px;
+}
+
+.hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #444444;
+}
+.hero--diyer {
+  background-color: var(--baseSubColor);
+}
+.hero--mentor {
+  background-color: var(--baseColor);
 }
 /*# sourceMappingURL=style.css.map */

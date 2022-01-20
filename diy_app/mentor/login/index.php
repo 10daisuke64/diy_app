@@ -11,15 +11,9 @@ include $path . "/common/functions.php";
 <main>
   <section class="section">
     <div class="wrapper">
-      <h1>DIYer用 新規登録フォーム</h1>
+      <h1>メンター用 ログインフォーム</h1>
       <div class="login-form">
-        <form action="./register.php" method="POST">
-          <dl>
-            <dt>ニックネーム</dt>
-            <dd>
-              <input type="text" name="name">
-            </dd>
-          </dl>
+        <form action="./login.php" method="POST">
           <dl>
             <dt>メールアドレス</dt>
             <dd>
@@ -32,10 +26,10 @@ include $path . "/common/functions.php";
               <input type="password" name="password" autocomplete>
             </dd>
           </dl>
-          <button class="c-submit" type="submit">登録</button>
+          <button class="c-submit" type="submit">ログイン</button>
         </form>
       </div>
-      <a href="/diy_app/diyer/login/">ログイン</a>
+      <a href="/diy_app/mentor/register/">新規登録</a>
     </div>
   </section>
 </main>

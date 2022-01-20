@@ -15,8 +15,12 @@ h2:not([class]) {
 a:not([class]) {
   text-decoration: underline;
 }
+time {
+  font-size: 12px;
+  text-decoration: none;
+}
 .section {
-  padding: 40px 0;
+  padding: 64px 0;
 }
 
 .d-dash-qlist {
@@ -27,5 +31,23 @@ a:not([class]) {
     &:not(:first-of-type) {
       margin-top: 8px;
     }
+  }
+}
+
+.question-pagination {
+  margin-top: 40px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444444;
+
+  &--diyer {
+    background-color: var(--baseSubColor);
+  }
+  &--mentor {
+    background-color: var(--baseColor);
   }
 }

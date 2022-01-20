@@ -7,6 +7,10 @@ include($path . "/common/functions.php");
 <?php include($path . "/common/header.php"); ?>
 <!-- //header -->
 
+<div class="hero">
+  <img src="/diy_app/img/hero.png" width="200" height="200" alt="hero">
+</div>
+
 <main>
   <section class="section">
     <div class="wrapper">

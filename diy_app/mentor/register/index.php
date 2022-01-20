@@ -11,7 +11,7 @@ include $path . "/common/functions.php";
 <main>
   <section class="section">
     <div class="wrapper">
-      <h1>DIYer用 新規登録フォーム</h1>
+      <h1>メンター用 新規登録フォーム</h1>
       <div class="login-form">
         <form action="./register.php" method="POST">
           <dl>
@@ -35,7 +35,7 @@ include $path . "/common/functions.php";
           <button class="c-submit" type="submit">登録</button>
         </form>
       </div>
-      <a href="/diy_app/diyer/login/">ログイン</a>
+      <a href="/diy_app/mentor/login/">ログイン</a>
     </div>
   </section>
 </main>

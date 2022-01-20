@@ -2,6 +2,10 @@
 session_start();
 $path = $_SERVER['DOCUMENT_ROOT'] . "/diy_app";
 include $path . "/common/functions.php";
+// セッションの有無をチェック
+check_session_id("login");
+// ユーザー属性のチェック
+check_mentor();
 ?>
 
 <!-- header -->
@@ -11,25 +15,24 @@ include $path . "/common/functions.php";
 <main>
   <section class="section">
     <div class="wrapper">
-      <h1>DIYer用 ログインフォーム</h1>
-      <div class="login-form">
-        <form action="./login.php" method="POST">
+      <h1>回答フォーム</h1>
+      <div class="question-form">
+        <form action="./post_act.php" method="POST">
           <dl>
-            <dt>メールアドレス</dt>
+            <dt>タイトル</dt>
             <dd>
-              <input type="email" name="email">
+              <input type="text" name="title">
             </dd>
           </dl>
           <dl>
-            <dt>パスワード</dt>
+            <dt>回答内容</dt>
             <dd>
-              <input type="password" name="password" autocomplete>
+              <textarea name="body" rows="10"></textarea>
             </dd>
           </dl>
-          <button class="c-submit" type="submit">ログイン</button>
+          <button class="c-submit" type="submit">回答する</button>
         </form>
       </div>
-      <a href="/diy_app/diyer/register/">新規登録</a>
     </div>
   </section>
 </main>

@@ -2,7 +2,10 @@
 session_start();
 $path = $_SERVER['DOCUMENT_ROOT'] . "/diy_app";
 include $path . "/common/functions.php";
+// セッションの有無をチェック
 check_session_id("login");
+// ユーザー属性のチェック
+check_diyer();
 
 // -----------------------------
 //  POST 受け取り
@@ -26,9 +29,11 @@ if ($is_published_value == "delete") {
 } elseif ($is_published_value == "published") {
   $is_deleted = 0;
   $is_published = 1;
-} else {
+} elseif ($is_published_value == "unpublished") {
   $is_deleted = 0;
   $is_published = 0;
+} else {
+  exit('paramError');
 }
 
 // var_dump($title);

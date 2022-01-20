@@ -11,7 +11,7 @@ $password = $_POST['password'];
 $pdo = connect_to_db();
 
 // SQL実行
-$sql = 'SELECT * FROM users_table WHERE email=:email AND is_deleted=0 AND is_diyer=1';
+$sql = 'SELECT * FROM users_table WHERE email=:email AND is_deleted=0 AND is_mentor=1';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':email', $email, PDO::PARAM_STR);
 
@@ -33,9 +33,9 @@ if (password_verify($password, $val['password'])) {
   $_SESSION['is_admin'] = $val['is_admin'];
   $_SESSION['is_diyer'] = $val['is_diyer'];
   $_SESSION['is_mentor'] = $val['is_mentor'];
-  header("Location:/diy_app/diyer/dashboard/");
+  header("Location:/diy_app/mentor/dashboard/");
   exit();
 } else {
-  header("Location:/diy_app/diyer/login/login_failure.php");
+  header("Location:/diy_app/mentor/login/login_failure.php");
   exit();
 }
